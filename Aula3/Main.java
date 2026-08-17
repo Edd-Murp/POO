@@ -17,6 +17,35 @@ import models.Produto;
 
 public static void main(String[] args) {
     
+    Pessoa p1 = new Pessoa();
+    p1.nome = "Ana";
+    p1.idade = 25;
+    System.out.println(p1.getNome());
+    System.out.println(p1.getIdade());
+    System.out.println(p1.isMaiorDeIdade());
+    System.out.println(p1.msg(p1.getNome(), p1.getIdade()));
+
+    Aluno aluno = new Aluno();
+    aluno.nota = 9.9;
+    aluno.aprovado();
+    System.out.println(aluno.aprovado);
+    aluno.desaprovado();
+    System.out.println(aluno.aprovado);
+
+    Carro carro = new Carro();
+    carro.aumentarKM();
+    carro.aumentarKM();
+    carro.aumentarKM();
+    System.out.println(carro.quilometragem);
+
+
+    Produto produto = new Produto();
+    produto.aumentarEstoque();
+    produto.aumentarEstoque();
+    produto.aumentarEstoque();
+    produto.aumentarEstoque();
+    produto.aumentarEstoque();
+    /*
     Pessoa pessoa1 = new Pessoa();
     pessoa1.nome = "Ana";
     pessoa1.idade = 21;
@@ -326,5 +355,5 @@ public static void main(String[] args) {
     p1.comprador = pessoa1;
 
     //30
-    
+*/   
 }

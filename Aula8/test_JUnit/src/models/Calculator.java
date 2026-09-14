@@ -7,9 +7,7 @@ public class Calculator {
     private String operacao;
        
     public Calculator(double valor1, double valor2, String operacao) {
-        this.valor1 = valor1;
-        this.valor2 = valor2;
-        this.operacao = operacao;
+        
     }
 
     public double getValor1() {

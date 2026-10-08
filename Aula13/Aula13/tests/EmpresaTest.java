@@ -10,6 +10,20 @@ import models.*;
 
 public class EmpresaTest {
 
+    @Test 
+    public void deveCalcularSalarioDoFuncionario() {
+        Funcionario funcionario = new FuncionarioComum("João", 3000.0);
+
+        assertEquals(3000.0, funcionario.calcularSalario(), 0.001);
+    }
+
+    @Test 
+    public void deveCalcularSalarioDoProgramador() {
+        Funcionario programador = new Programador("Ana", 4000.0, "Java");
+
+        assertEquals(4100.0, programador.calcularSalario(), 0.001);
+    }
+
     @Test
     public void deveCalcularSalarioDoGerente() {
         Funcionario gerente = new Gerente("João", 5000.0, 1000.0);

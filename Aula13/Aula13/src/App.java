@@ -136,8 +136,8 @@ public class App extends Print{
                 ((Vendedor) funcionarios2[i]).registrarVenda();
                 print("Vendas do vendedor " + ((Vendedor) funcionarios2[i]).getNome() + ": " + ((Vendedor) funcionarios2[i]).getVendas());
             }if(funcionarios2[i] instanceof Gerente) {
-                ((Gerente) funcionarios2[i]).definirMeta(1000.0);
-                print("Meta do gerente " + ((Gerente) funcionarios2[i]).getNome() + ": R$ " + ((Gerente) funcionarios2[i]).getMeta());
+                ((Gerente) funcionarios2[i]).definirMeta(true);
+                print("Meta do gerente " + ((Gerente) funcionarios2[i]).getNome() + ": " + ((Gerente) funcionarios2[i]).getMeta());
             }
         }
 
@@ -189,6 +189,33 @@ public class App extends Print{
             Figura figura = figurasLista.get(i);
             print("Área: " + figura.calcularArea() + " | Perímetro: " + figura.calcularPerimetro());
         }
+    
+        //25
+        print("");
+        Relatorio[] relatorios = {new RelatorioCSV(), new RelatorioExcel(), new RelatorioPDF()};
+        for (int i = 0; i < relatorios.length; i++) {
+            relatorios[i].gerar();
+        }
+        
+        //26
+        print("");
+        Personagem[] personagens = {new Guerreiro(), new Mago(), new Arqueiro()};
+        for (int i = 0; i < personagens.length; i++) {
+            personagens[i].atacar();
+        }
+
+        //27
+        print("");
+        Funcionario[] funcionarios3 = {new Programador("Alice", 5000.0, "Java"), new Gerente("Bob", 8000.0, 10), new Consultor("Charlie", 4000.0, 20), new Vendedor("David", 3000.0, 30)};
+        for (int i = 0; i < funcionarios3.length; i++) {
+            print("Nome: " + funcionarios3[i].getNome() + " | Salário: R$ " + funcionarios3[i].calcularSalario() + " | Bônus: R$ " + funcionarios3[i].calcularBonus());
+            if(funcionarios3[i] instanceof Programador) {
+                ((Programador) funcionarios3[i]).adicionarLinguagem("Python");
+                print("Linguagens do programador: " + ((Programador) funcionarios3[i]).getLinguagens());
+            }
+        }
+
+
     }
 
 }

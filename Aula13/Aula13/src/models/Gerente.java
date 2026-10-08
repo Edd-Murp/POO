@@ -2,7 +2,7 @@ package models;
 
 public class Gerente extends Funcionario {
     private double bonus;
-    private double meta;
+    private boolean meta;
 
     public Gerente(String nome, double salarioBase, double bonus) {
         super(nome, salarioBase);
@@ -11,7 +11,10 @@ public class Gerente extends Funcionario {
 
     @Override
     public double calcularSalario() {
-        return getSalarioBase() + bonus;
+        if(meta) {
+            return getSalarioBase() + bonus;
+        }
+        return getSalarioBase();
     }
 
     public double getBonus() {
@@ -27,11 +30,11 @@ public class Gerente extends Funcionario {
         return getSalarioBase() * bonus;
     }
 
-    public double getMeta() {
+    public boolean getMeta() {
         return meta;
     }
 
-    public void definirMeta(double meta) {
+    public void definirMeta(boolean meta) {
         this.meta = meta;
     }
     

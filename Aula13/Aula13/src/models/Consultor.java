@@ -10,7 +10,7 @@ public class Consultor extends Funcionario {
 
     @Override
     public double calcularSalario() {
-        return getSalarioBase() + (taxaHora * 160); // Assuming 160 hours per month
+        return getSalarioBase() + (taxaHora * 160);
     }
 
     public double getTaxaHora() {

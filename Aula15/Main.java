@@ -1,7 +1,10 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import exercicios.Exercicios16a30;
+import exercicios.Questao21;
 import models.*;
 
 /**
@@ -213,6 +216,63 @@ public class Main {
             System.out.println("Erro ao criar PIX inválido: " + e.getMessage());
         }
 
+        //13
+        System.out.println("\n=== Questão 13 - Sistema de notificações ===");
+
+        List<Notificador> notificadores = new ArrayList<>();
+        notificadores.add(new NotificacaoEmail("aluno@teste.com"));
+        notificadores.add(new NotificacaoSMS("+5511999999999"));
+        notificadores.add(new NotificacaoEmail("email-invalido"));
+
+        for (Notificador notificador : notificadores) {
+            try {
+                notificador.enviar("Olá! Esta é uma notificação.");
+            } catch (FalhaNotificacaoException e) {
+                System.out.println("Falha ao enviar notificação: " + e.getMessage());
+            }
+        }
+
+        //14
+        ArrayList<Autenticavel> usuarios = new ArrayList<>();
+        usuarios.add(new Administrador("A","123",1));
+        usuarios.add(new Cliente("A", "123"));
+        usuarios.add(new Cliente("A", "122"));
         
+        for (Autenticavel usuario : usuarios) {
+            try {
+                usuario.autenticar();
+            } catch (Exception e) {
+                if (!e.getClass().getSimpleName().equals("IllegalArgumentException")) {
+                    System.out.println("Houve algum problema inesperado...");
+                }else{
+                    System.out.println(e);
+                }
+            }
+        }
+
+        //15
+        System.out.println("\n=== Questão 15 - Geração de relatórios ===");
+
+        List<GeradorRelatorio> geradoresRelatorio = new ArrayList<>();
+        geradoresRelatorio.add(new RelatorioCSV());
+        geradoresRelatorio.add(new RelatorioPDF(true));
+        geradoresRelatorio.add(new RelatorioHTML());
+
+        for (GeradorRelatorio gerador : geradoresRelatorio) {
+            try {
+                gerador.gerar();
+            } catch (FalhaGeracaoRelatorioException e) {
+                System.out.println("Falha ao gerar relatório: " + e.getMessage());
+            }
+        }
+
+        //16-30
+        Exercicios16a30.executarAntes21();
+        try {
+            Questao21.executar();
+        } catch (IOException e) {
+            System.out.println("Falha tratada no método main: " + e.getMessage());
+        }
+        Exercicios16a30.executarDepois21();
     }
 }

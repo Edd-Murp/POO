@@ -1,0 +1,4 @@
+Olá, mundo!
+Teclado;2000.0;1
+Mouse;79.9;1
+Monitor;899.9;1

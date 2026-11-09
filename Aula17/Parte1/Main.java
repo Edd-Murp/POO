@@ -1,5 +1,6 @@
 package Parte1;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import Parte1.models.*;
@@ -31,7 +32,17 @@ public class Main {
         // clienteRepository.exibirQuantidadeClientes("Parte1/");
 
         //Exercício 3
-        
+        // FuncionarioRepository funcionarioRepository = new FuncionarioRepository();
+        // Funcionario funcionario = new Funcionario(1, "Gerson", "123456", "Chefe", 1500);
+        // funcionarioRepository.cadastrarFuncionario("", funcionario);
+        // System.out.println("");
+        // funcionarioRepository.calcularSomaDosFuncionarios("");
+        // System.out.println("");
+        // funcionarioRepository.listarFuncionarios("");
+        // System.out.println("");
+        // funcionarioRepository.consultarFuncionarioPorCargo("", "Chefe");
+        // System.out.println("");
+        // funcionarioRepository.consultarFuncionarioPorMatricula("", 1);
 
 
         // Exercicio 4
@@ -49,7 +60,25 @@ public class Main {
         // System.out.println("");
         // produtoRepository.listarProdutos("");
 
-        //Exercício 5
+        // Exercício 5
+        System.out.println("=== Exercício 5 - Conta Bancária ===");
+        File contasFile = new File("Parte1/contas.bin");
+        if (contasFile.exists()) {
+            contasFile.delete();
+        }
 
+        ContaBancariaRepository contaRepository = new ContaBancariaRepository();
+
+        ContaBancaria conta1 = new ContaBancaria(1001, "001", "Ana", 500.0);
+        contaRepository.cadastrarConta("", conta1);
+        contaRepository.consultarContaPorNumero(1001);
+
+        contaRepository.depositar(1001, 250.0);
+        contaRepository.consultarSaldo(1001, 0);
+
+        contaRepository.saque(1001, 100.0);
+        contaRepository.consultarSaldo(1001, 0);
+
+        contaRepository.listarContas();
     }
 }
